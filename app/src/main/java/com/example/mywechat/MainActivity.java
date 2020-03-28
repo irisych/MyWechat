@@ -3,6 +3,7 @@ package com.example.mywechat;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +13,11 @@ import android.app.Fragment;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -36,14 +41,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
 
         initView();
         initFragment();
         initEvent();
         setSelect(0);
+
     }
 
     private void initFragment(){
@@ -110,6 +118,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         transaction.hide(mTab04);
 
     }
+
+
 
     @Override
     public void onClick(View v) {   //给全活动监听一个响应函数
